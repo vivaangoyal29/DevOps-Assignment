@@ -208,6 +208,24 @@ http://localhost:8081
 
 ---
 
+# Task 3: Docker Application Deployment
+
+As part of Task 3, three different types of applications were deployed
+using Docker:
+
+- Node.js
+- Python
+- Java
+
+## Node.js Application
+
+The Node.js application was containerized using Docker.
+
+### Build
+
+```bash
+docker build -t task3-nodejs ./nodejs-app
+
 # Conclusion
 
 This assignment provided practical experience with Docker multi-stage builds and application deployment.
