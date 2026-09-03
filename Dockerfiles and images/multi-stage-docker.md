@@ -49,7 +49,7 @@ The multi-stage Dockerfile was successfully processed and the Docker image was c
 
 ### Screenshot
 
-![Docker Build](screenshots/docker-build.png)
+![Docker Build](Screenshots/docker-build.png)
 
 ---
 
@@ -81,7 +81,7 @@ The output showed that the container was running and port `8080` was mapped succ
 
 ### Screenshot
 
-![Docker PS](screenshots/docker-ps.png)
+![Docker PS](Screenshots/docker-ps.png)
 
 ---
 
@@ -99,7 +99,7 @@ The application successfully displayed:
 
 ### Screenshot
 
-![Application Running](screenshots/application.png)
+![Application Running](Screenshots/application.png)
 
 ---
 
@@ -137,7 +137,7 @@ http://localhost:3000
 
 ### Screenshot
 
-![Node.js Application](screenshots/nodejs.png)
+![Node.js Application](Screenshots/nodejs.png)
 
 ---
 
@@ -165,7 +165,7 @@ http://localhost:8000
 
 ### Screenshot
 
-![Python Application](screenshots/python.png)
+![Python Application](Screenshots/python.png)
 
 ---
 
@@ -193,7 +193,7 @@ http://localhost:8081
 
 ### Screenshot
 
-![Java Application](screenshots/java.png)
+![Java Application](Screenshots/java.png)
 
 ---
 
