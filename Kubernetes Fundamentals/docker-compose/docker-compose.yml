@@ -1,0 +1,26 @@
+services:
+  frontend:
+    image: nginx
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+    ports:
+      - 8080:80
+    networks:
+      - frontend_net
+
+  backend:
+    image: nginx
+    networks:
+      - frontend_net
+      - backend_net
+
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - backend_net
+
+networks:
+  frontend_net:
+  backend_net:
