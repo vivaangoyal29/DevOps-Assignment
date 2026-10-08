@@ -152,9 +152,14 @@ kubectl top nodes
 
 If `kubectl top nodes` reports that Metrics Server is unavailable, install/enable Metrics Server using the instructions for your cluster provider before continuing. HPA scaling and `kubectl top pods` need metrics to be available.
 
-**Screenshot placeholder — cluster/context and available StorageClass**
 
-![TODO: Add a screenshot showing the current context, Ready nodes, and StorageClass output](screenshots/01-cluster-and-storageclass.png)
+<img width="980" height="636" alt="Screenshot 2026-10-08 061217" src="https://github.com/user-attachments/assets/d6b59429-260e-47d7-b8e8-cf6dc60338e6" />
+<img width="972" height="975" alt="Screenshot 2026-10-08 061225" src="https://github.com/user-attachments/assets/59a461bd-acd0-4243-b716-c48d6ffa83e6" />
+<img width="940" height="698" alt="Screenshot 2026-10-08 061256" src="https://github.com/user-attachments/assets/84f9e7f1-6725-4803-8272-09a2d99d15dd" />
+<img width="935" height="692" alt="Screenshot 2026-10-08 061311" src="https://github.com/user-attachments/assets/8a8f0982-fd83-4f14-8f49-69ff454ceadd" />
+<img width="932" height="355" alt="Screenshot 2026-10-08 061320" src="https://github.com/user-attachments/assets/33e2a40c-306f-4990-8fad-d751a5451369" />
+<img width="948" height="356" alt="Screenshot 2026-10-08 061323" src="https://github.com/user-attachments/assets/11df5228-261a-44b6-bb61-ebcb5ad45d4d" />
+
 
 ## Mini-project: PVC-backed web page with probes
 
@@ -201,17 +206,18 @@ kubectl get pods -l app=storage-demo -w
 
 Stop watching with **Ctrl+C**, then refresh the page. The init container leaves an existing file untouched, so the edited page should survive Pod replacement.
 
-**Screenshot placeholder — PVC bound and web Pod ready**
 
-![TODO: Add a screenshot showing the Bound PVC and Ready storage-demo Pod](screenshots/02-pvc-and-ready-pod.png)
+<img width="928" height="97" alt="Screenshot 2026-10-08 062405" src="https://github.com/user-attachments/assets/d49cfb47-b88d-40d9-8a9b-b6b08316051f" />
 
-**Screenshot placeholder — application page before and after Pod replacement**
 
-![TODO: Add a browser screenshot showing the PVC-backed page after the Pod was recreated](screenshots/03-persistent-web-page.png)
 
-**Screenshot placeholder — probe status**
+<img width="955" height="205" alt="Screenshot 2026-10-08 062618" src="https://github.com/user-attachments/assets/372e6c2a-fa44-439c-a4cf-d0451002f158" />
+<img width="1917" height="1047" alt="Screenshot 2026-10-08 062712" src="https://github.com/user-attachments/assets/cc2f5b9b-99ad-4dbb-9711-d0903c86eefa" />
 
-![TODO: Add a terminal screenshot of kubectl describe pod showing startup, readiness, and liveness probe details](screenshots/04-probe-status.png)
+
+
+<img width="946" height="243" alt="Screenshot 2026-10-08 063021" src="https://github.com/user-attachments/assets/a4736804-96b9-4428-91bd-bc8affd6452c" />
+
 
 ## HPA hands-on
 
@@ -234,9 +240,9 @@ kubectl get hpa --watch
 
 Stop watching with **Ctrl+C**. If CPU remains `<unknown>`, check Metrics Server and allow time for the first metrics sample.
 
-**Screenshot placeholder — application and HPA deployed before load**
 
-![TODO: Add a terminal screenshot showing the php-apache Pod, Service, and HPA before load](screenshots/05-hpa-before-load.png)
+<img width="933" height="222" alt="Screenshot 2026-10-08 063029" src="https://github.com/user-attachments/assets/c4f6b12c-ef8f-4a6f-a4f0-a083bb1988d8" />
+
 
 ### 2. Deploy the load generator
 
@@ -247,9 +253,9 @@ kubectl get pods
 
 The load-generator Pod continuously calls the `php-apache` Service. Confirm it is `Running`.
 
-**Screenshot placeholder — load generator running**
 
-![TODO: Add a terminal screenshot showing the load-generator Pod running](screenshots/06-load-generator-running.png)
+<img width="932" height="158" alt="Screenshot 2026-10-08 063034" src="https://github.com/user-attachments/assets/059a4b34-efa9-4799-b33c-d5d274a4ec6d" />
+
 
 ### 3. Observe CPU and scaling
 
@@ -274,17 +280,9 @@ kubectl get pods --watch
 
 Stop each watch with **Ctrl+C**. HPA scaling is not instantaneous; the displayed CPU percentage is relative to the CPU request, and replica counts change after the controller observes sufficient metrics. `kubectl top pods` should show CPU usage increasing while the load generator is active.
 
-**Screenshot placeholder — CPU utilization under load**
 
-![TODO: Add a terminal screenshot of kubectl top pods while the load generator is active](screenshots/07-cpu-under-load.png)
+<img width="957" height="143" alt="Screenshot 2026-10-08 063052" src="https://github.com/user-attachments/assets/9a32d368-14eb-4a5c-8ce1-3b1e3a99a104" />
 
-**Screenshot placeholder — HPA scaling and event details**
-
-![TODO: Add a terminal screenshot showing kubectl get hpa and kubectl describe hpa php-apache with increased replicas](screenshots/08-hpa-scale-up.png)
-
-**Screenshot placeholder — additional Pods created**
-
-![TODO: Add a terminal screenshot of kubectl get pods showing multiple php-apache Pods](screenshots/09-pods-scaled-up.png)
 
 ### 4. Stop the load and observe scale-down
 
@@ -295,9 +293,6 @@ kubectl get hpa --watch
 
 The HPA may take several minutes to scale back down, and its stabilization window can delay scale-down. Stop watching with **Ctrl+C** after replica counts decrease.
 
-**Screenshot placeholder — HPA after load stops**
-
-![TODO: Add a terminal screenshot showing the HPA replica count decreasing after load-generator deletion](screenshots/10-hpa-scale-down.png)
 
 ### Example output to record
 
